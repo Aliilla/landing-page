@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الخلطة الملكية - تعاونية مناحل بوزيد</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Arial', 'Droid Arabic Naskh';
+            line-height: 1.6;
+            color: #333;
+            background: #fafaf8;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4a824 100%);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        .header-content h1 {
+            font-size: 24px;
+            color: #fff;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fff9e6 0%, #ffe8a8 100%);
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            top: -50px;
+            right: -50px;
+            border-radius: 50%;
+        }
+
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-brand {
+            font-size: 32px;
+            font-weight: 800;
+            color: #8b6914;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .hero-product {
+            font-size: 48px;
+            font-weight: 900;
+            color: #d4af37;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-headline {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .hero-subheadline {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+            color: #fff;
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px);
+        }
+
+        /* Product Images Section */
+        .products-section {
+            padding: 60px 20px;
+            background: #fff;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: #333;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #d4af37, #f4d03f);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .product-card {
+            background: #fafaf8;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #f4d03f 0%, #d4af37 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .product-desc {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Ingredients Section */
+        .ingredients-section {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #fff9e6 0%, #ffe8a8 100%);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .ingredients-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .ingredients-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .ingredient-item {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 12px;
+            border-right: 4px solid #d4af37;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .ingredient-icon {
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+
+        .ingredient-text {
+            flex: 1;
+        }
+
+        .ingredient-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .ingredient-desc {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .ingredients-image {
+            height: 400px;
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .ingredients-benefit {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: #8b6914;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 60px 20px;
+            background: #fff;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(244, 208, 63, 0.05) 100%);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid #d4af37;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15);
+        }
+
+        .benefit-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .benefit-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .benefit-desc {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #fff9e6 0%, #ffe8a8 100%);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border-right: 4px solid #d4af37;
+        }
+
+        .testimonial-stars {
+            color: #f4d03f;
+            font-size: 18px;
+            margin-bottom: 15px;
+            letter-spacing: 5px;
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            color: #333;
+            font-style: italic;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-size: 15px;
+            font-weight: 700;
+            color: #8b6914;
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: 60px 20px;
+            background: #fff;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #fff9e6 0%, #ffe8a8 100%);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .form-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 15px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+            background: #fff;
+        }
+
+        .form-button {
+            width: 100%;
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+            color: #fff;
+            padding: 16px;
+            font-size: 17px;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .form-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .form-button:active {
+            transform: translateY(0);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4a824 100%);
+            text-align: center;
+        }
+
+        .cta-section-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-section-desc {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .cta-button-white {
+            display: inline-block;
+            background: #fff;
+            color: #d4af37;
+            padding: 16px 40px;
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 14px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #d4af37;
+        }
+
+        .footer-contact {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+
+        .footer-note {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-brand {
+                font-size: 24px;
+            }
+
+            .hero-product {
+                font-size: 36px;
+            }
+
+            .hero-headline {
+                font-size: 22px;
+            }
+
+            .hero-subheadline {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .ingredients-content {
+                grid-template-columns: 1fr;
+            }
+
+            .ingredients-image {
+                height: 250px;
+                font-size: 80px;
+            }
+
+            .cta-section-title {
+                font-size: 28px;
+            }
+
+            .cta-section-desc {
+                font-size: 16px;
+            }
+
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .products-section,
+            .ingredients-section,
+            .benefits-section,
+            .testimonials-section,
+            .form-section {
+                padding: 40px 20px;
+            }
+
+            .form-container {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-brand {
+                font-size: 20px;
+            }
+
+            .hero-product {
+                font-size: 28px;
+            }
+
+            .hero-headline {
+                font-size: 18px;
+            }
+
+            .hero-subheadline {
+                font-size: 14px;
+            }
+
+            .cta-button {
+                padding: 14px 28px;
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .benefit-card {
+                padding: 20px;
+            }
+
+            .ingredient-item {
+                padding: 15px;
+            }
+
+            .testimonial-card {
+                padding: 20px;
+            }
+
+            .form-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="header-content">
+                <h1>🐝 تعاونية مناحل بوزيد</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-brand">تعاونية مناحل بوزيد</div>
+            <div class="hero-product">الخلطة الملكية الطبيعية</div>
+            <h1 class="hero-headline">صحتك أهم استثمار في حياتك</h1>
+            <p class="hero-subheadline">مزيج طبيعي 100٪ من أفضل مكونات الطبيعة لتقوية مناعتك وزيادة نشاطك اليومي</p>
+            <a href="https://wa.me/212714049040?text=السلام%20عليكم،%20مهتم%20بشراء%20الخلطة%20الرباعية" class="cta-button">اطلب الآن عبر واتساب 📲</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <h2 class="section-title">منتجاتنا الحصرية</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image" style="background: none; display: flex; align-items: center; justify-content: center;">
+                    <img src="image1.jpg" alt="الخلطة الملكية" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="product-info">
+                    <div class="product-name">الخلطة الملكية</div>
+                    <div class="product-desc">مزيج سحري من أفضل مكونات الطبيعة</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">✨</div>
+                <div class="product-info">
+                    <div class="product-name">الجودة المضمونة</div>
+                    <div class="product-desc">منتجات طبيعية 100٪ بدون إضافات</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">👑</div>
+                <div class="product-info">
+                    <div class="product-name">الثقة والتميز</div>
+                    <div class="product-desc">تعاونية موثوقة بسنوات من الخبرة</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ingredients Section -->
+    <section class="ingredients-section">
+        <h2 class="section-title">المكونات الطبيعية</h2>
+        <div class="ingredients-content">
+            <div>
+                <div class="ingredients-list">
+                    <div class="ingredient-item">
+                        <div class="ingredient-icon">🍯</div>
+                        <div class="ingredient-text">
+                            <div class="ingredient-name">العسل الحر الطبيعي 100٪</div>
+                            <div class="ingredient-desc">عسل نقي من أفضل خلايا النحل</div>
+                        </div>
+                    </div>
+                    <div class="ingredient-item">
+                        <div class="ingredient-icon">🐝</div>
+                        <div class="ingredient-text">
+                            <div class="ingredient-name">العكبر (Propolis)</div>
+                            <div class="ingredient-desc">مضاد طبيعي قوي لتقوية المناعة</div>
+                        </div>
+                    </div>
+                    <div class="ingredient-item">
+                        <div class="ingredient-icon">👑</div>
+                        <div class="ingredient-text">
+                            <div class="ingredient-name">العسل الملكي (Royal Jelly)</div>
+                            <div class="ingredient-desc">غذاء الملكات لصحة شاملة</div>
+                        </div>
+                    </div>
+                    <div class="ingredient-item">
+                        <div class="ingredient-icon">🌼</div>
+                        <div class="ingredient-text">
+                            <div class="ingredient-name">حبوب اللقاح</div>
+                            <div class="ingredient-desc">مصدر طبيعي للطاقة والحيوية</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ingredients-benefit">
+                    💪 قوة هذه التركيبة الطبيعية تعطيك جسماً قوياً وحصانة عالية ضد الأمراض
+                </div>
+            </div>
+            <div class="ingredients-image">🍯</div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <h2 class="section-title">فوائد الخلطة الملكية</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <span class="benefit-icon">🛡️</span>
+                <div class="benefit-title">تقوية المناعة</div>
+                <div class="benefit-desc">احمِ نفسك وعائلتك من الأمراض بمناعة قوية وفعالة طوال السنة</div>
+            </div>
+            <div class="benefit-card">
+                <span class="benefit-icon">⚡</span>
+                <div class="benefit-title">زيادة النشاط والطاقة</div>
+                <div class="benefit-desc">استيقظ كل يوم بطاقة لا محدودة وحيوية تملأ جسدك طوال اليوم</div>
+            </div>
+            <div class="benefit-card">
+                <span class="benefit-icon">❤️</span>
+                <div class="benefit-title">تحسين الصحة العامة</div>
+                <div class="benefit-desc">تمتع بصحة جسدية وذهنية أفضل تنعكس على إنتاجيتك وسعادتك</div>
+            </div>
+            <div class="benefit-card">
+                <span class="benefit-icon">🌿</span>
+                <div class="benefit-title">دعم طبيعي فعال</div>
+                <div class="benefit-desc">استثمر في صحتك بمنتج طبيعي 100٪ بدون آثار جانبية مضرة</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <h2 class="section-title">آراء زبائننا الرضا</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial-text">
+                    "والله الحمد لله على هاد المنتاج الرائع، كنت ضعيف المناعة وعندي حساسية مستمرة، لما شريت الخلطة الملكية فقط في أسبوع شعرت بالفرق، اليوم نشاطي تاع حال وصراحة ماتحتاج دوا للحساسية"
+                </div>
+                <div class="testimonial-author">محمد من فاس</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial-text">
+                    "منتج عالي الجودة والسعر معقول بزاف، كملت معهم عائلتي وكلنا نحتاج هذا المنتج، أولادي خاصة تحسن أداؤهم في الدراسة والله يعطيهم الصحة والعافية"
+                </div>
+                <div class="testimonial-author">فاطمة من مراكش</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial-text">
+                    "الحمد لله اللي وجدت هاد المنتج، كنت دايما تعبانة من الإرهاق والتعب، الخلطة الملكية بدلت حالي وديتني للطبيب قال ليا أنتي بجودة جيدة، شكراً لتعاونية مناحل بوزيد"
+                </div>
+                <div class="testimonial-author">علياء من الرباط</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <h2 class="section-title">احصل على عرض خاص الآن</h2>
+        <div class="form-container">
+            <h3 class="form-title">شارك بياناتك واحصل على أفضل سعر</h3>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label class="form-label">الاسم الكامل</label>
+                    <input type="text" class="form-input" id="fullName" placeholder="أدخل اسمك الكامل" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">رقم الهاتف</label>
+                    <input type="tel" class="form-input" id="phoneNumber" placeholder="مثال: 0612345678" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">العنوان / المدينة</label>
+                    <input type="text" class="form-input" id="address" placeholder="مدينتك أو العنوان" required>
+                </div>
+                <button type="submit" class="form-button">أرسل طلبي الآن عبر واتساب 📲</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-section-content">
+            <h2 class="cta-section-title">هل أنت جاهز لتغيير حياتك؟</h2>
+            <p class="cta-section-desc">تواصل معنا الآن عبر واتساب واحصل على استشارة مجانية حول أفضل طريقة لاستخدام الخلطة الملكية</p>
+            <a href="https://wa.me/212714049040?text=السلام%20عليكم،%20مهتم%20بشراء%20الخلطة%20الرباعية" class="cta-button-white">تواصل معنا الآن ✨</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">🐝 تعاونية مناحل بوزيد</div>
+            <div class="footer-contact">الخلطة الملكية الطبيعية | الصحة من الطبيعة</div>
+            <div class="footer-contact">📱 اتصل بنا عبر واتساب: <a href="https://wa.me/212714049040" style="color: #d4af37; text-decoration: none;">+212 714049040</a></div>
+            <div class="footer-note">© 2026 جميع الحقوق محفوظة لتعاونية مناحل بوزيد</div>
+        </div>
+    </footer>
+
+    <script>
+        // Handle form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form values
+            const fullName = document.getElementById('fullName').value.trim();
+            const phoneNumber = document.getElementById('phoneNumber').value.trim();
+            const address = document.getElementById('address').value.trim();
+
+            // Validate form
+            if (!fullName || !phoneNumber || !address) {
+                alert('الرجاء ملء جميع الحقول');
+                return;
+            }
+
+            // Create WhatsApp message
+            const message = `السلام عليكم ورحمة الله وبركاته
+
+أريد شراء الخلطة الملكية الطبيعية
+
+📋 البيانات:
+الاسم: ${fullName}
+الهاتف: ${phoneNumber}
+المدينة/العنوان: ${address}
+
+شكراً لتعاونية مناحل بوزيد 🐝`;
+
+            // Encode message for WhatsApp
+            const encodedMessage = encodeURIComponent(message);
+
+            // Open WhatsApp link
+            window.open(`https://wa.me/212714049040?text=${encodedMessage}`, '_blank');
+
+            // Reset form
+            document.getElementById('contactForm').reset();
+        });
+
+        // Add scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.benefit-card, .product-card, .testimonial-card, .ingredient-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add fadeInUp animation
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
